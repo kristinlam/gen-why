@@ -18,7 +18,7 @@ export const getSubjects = () => {
 
 export default function (state = [], action) {
   switch (action.type) {
-    case SET_PROJECTS:
+    case GET_SUBJECTS:
       return action.subjects;
     default:
       return state;
