@@ -3,19 +3,23 @@ import Navbar from './components/Navbar';
 import Routes from './Routes';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { typographyClasses } from '@mui/material';
 
 const theme = createTheme({
   palette: {
     background: {
-      default: '#222222',
+      default: '#ffffff',
     },
     text: {
-      primary: '#ffffff',
+      primary: '#222222',
     },
     link: {
       textDecoration: 'none',
       color: '#ffffff',
     },
+  },
+  typography: {
+    fontFamily: 'Roboto',
   },
 });
 
