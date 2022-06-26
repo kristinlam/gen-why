@@ -13,7 +13,7 @@ export const AllSubjects = () => {
   return (
     <div>
       {subjects.map((subject) => (
-        <Link key={subject.id} to={`/${subject.id}`}>
+        <Link key={subject.id} to={`/subjects/${subject.id}`}>
           {subject.name}
         </Link>
       ))}
