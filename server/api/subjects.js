@@ -30,3 +30,30 @@ router.get('/:subjectId', async (req, res, next) => {
     next(err);
   }
 });
+
+// POST /api/subjects
+router.post('/', async (req, res, next) => {
+  try {
+    const [subject] = await Subject.findOrCreate({
+      where: { name: req.body.name },
+      defaults: {
+        status: 'approved',
+      },
+      include: Article,
+    });
+
+    const article = await Article.create({
+      title: req.body.title,
+      link: req.body.link,
+      source: req.body.source,
+    });
+
+    await subject.addArticle(article);
+
+    await subject.reload();
+
+    res.json(subject);
+  } catch (err) {
+    next(err);
+  }
+});
