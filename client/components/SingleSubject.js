@@ -24,6 +24,7 @@ export const SingleSubject = (props) => {
               pathname: `${article.link}`,
             }}
             target="_blank"
+            rel="noreferrer"
           >
             {article.title}
           </Link>
