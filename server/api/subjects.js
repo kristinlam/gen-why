@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { Subject },
+  models: { Subject, Article },
 } = require('../db');
 module.exports = router;
 
@@ -14,6 +14,18 @@ router.get('/', async (req, res, next) => {
       },
     });
     res.json(subjects);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET /api/subjects/:subjectId
+router.get('/:subjectId', async (req, res, next) => {
+  try {
+    const subject = await Subject.findByPk(req.params.subjectId, {
+      include: Article,
+    });
+    res.json(subject);
   } catch (err) {
     next(err);
   }
