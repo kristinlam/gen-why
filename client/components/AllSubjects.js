@@ -13,7 +13,9 @@ export const AllSubjects = () => {
   return (
     <div>
       {subjects.map((subject) => (
-        <p key={subject.id}>{subject.name}</p>
+        <Link key={subject.id} to={`/${subject.id}`}>
+          {subject.name}
+        </Link>
       ))}
     </div>
   );
