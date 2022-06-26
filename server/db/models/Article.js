@@ -5,6 +5,7 @@ const Article = db.define('article', {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
+    unique: true, // don't link to same article more than once
     validate: {
       notEmpty: true,
     },
