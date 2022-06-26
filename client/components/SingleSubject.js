@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getSubject } from '../store/singleSubject';
 
-export const SingleSubject = (props) => {
+const SingleSubject = (props) => {
   console.log('props', props);
   const subject = useSelector((state) => state.singleSubject);
   const dispatch = useDispatch();
@@ -34,3 +34,5 @@ export const SingleSubject = (props) => {
     </div>
   );
 };
+
+export default SingleSubject;

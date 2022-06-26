@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import { AllSubjects } from './AllSubjects';
+import AllSubjects from './AllSubjects';
 
 export const Home = () => {
   return (
