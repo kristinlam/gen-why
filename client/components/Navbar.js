@@ -10,8 +10,23 @@ import Toolbar from '@mui/material/Toolbar';
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <AppBar color="primary" position="static">
     <Toolbar>
-      <Link component={RouterLink} to="/">
+      <Link
+        to="/"
+        component={RouterLink}
+        color="white"
+        variant="h5"
+        underline="none"
+      >
         Gen Why
+      </Link>
+      <Link
+        to="/submit"
+        component={RouterLink}
+        color="white"
+        variant="body1"
+        underline="none"
+      >
+        Suggest a Story
       </Link>
     </Toolbar>
   </AppBar>

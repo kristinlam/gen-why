@@ -19,12 +19,14 @@ const SingleSubject = (props) => {
       {articles.map((article) => (
         <div>
           <Link
-            component={RouterLink}
             to={{
               pathname: `${article.link}`,
             }}
+            component={RouterLink}
             target="_blank"
             rel="noreferrer"
+            variant="body1"
+            underline="none"
           >
             {article.title}
           </Link>
