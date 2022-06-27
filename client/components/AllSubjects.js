@@ -10,12 +10,17 @@ const AllSubjects = () => {
     dispatch(getSubjects());
   }, [dispatch]);
 
+  // sorting function
+  function alphabeticalSort(a, b) {
+    return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
+  }
+
   return (
     <div>
-      {subjects.map((subject) => (
-        <Link key={subject.id} to={`/subjects/${subject.id}`}>
-          {subject.name}
-        </Link>
+      {subjects.sort(alphabeticalSort).map((subject) => (
+        <div key={subject.id}>
+          <Link to={`/subjects/${subject.id}`}>{subject.name}</Link> •
+        </div>
       ))}
     </div>
   );
