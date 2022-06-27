@@ -13,6 +13,8 @@ const AllSubjects = () => {
 
   // sorting function
   function alphabeticalSort(a, b) {
+    a.name = a.name.toLowerCase();
+    b.name = b.name.toLowerCase();
     return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
   }
 
