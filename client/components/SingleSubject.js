@@ -5,7 +5,6 @@ import Link from '@mui/material/Link';
 import { getSubject } from '../store/singleSubject';
 
 const SingleSubject = (props) => {
-  console.log('props', props);
   const subject = useSelector((state) => state.singleSubject);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,7 +12,6 @@ const SingleSubject = (props) => {
   }, [dispatch]);
 
   const articles = subject.articles || [];
-  console.log('articles', articles);
 
   return (
     <div>
