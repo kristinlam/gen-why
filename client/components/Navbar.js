@@ -9,7 +9,7 @@ import Toolbar from '@mui/material/Toolbar';
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <AppBar>
     <Toolbar>
-      <Typography>Gen Why</Typography>
+      <Link to="/">Gen Why</Link>
     </Toolbar>
   </AppBar>
 
