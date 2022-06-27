@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import AllSubjects from './AllSubjects';
 
@@ -12,7 +13,8 @@ export const Home = () => {
         like wearing pants. After much online backlash, these articles near
         their end — which is how we've manage to kill the "How Millennials
         Killed" headlines. As this era of brilliant journalism draws its final
-        breath, look back on all the things millennials have been blamed for.
+        breath, let's look back on all the things millennials have been blamed
+        for. <Link to="/submit">Are we missing anything?</Link>
       </Typography>
       <AllSubjects />
     </div>
