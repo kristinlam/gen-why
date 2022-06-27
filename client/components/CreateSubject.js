@@ -32,34 +32,39 @@ const CreateSubject = () => {
     <Grid
       justify="center"
       alignItems="center"
-      direction="column"
-      spacing={5}
       sx={{
         minWidth: '100%',
         minHeight: '90vh',
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
       }}
     >
       <Grid
         item
-        sx={{ background: 'rgba(255,255,255, 0.95)', p: 5, borderRadius: 3 }}
+        sx={{
+          background: 'rgba(255,255,255, 0.95)',
+          boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, .5)',
+          p: 4,
+          borderRadius: 3,
+        }}
       >
-        <Typography variant="h3">Suggest a Story</Typography>
+        <Typography variant="h3" mb={1}>
+          Suggest a Story
+        </Typography>
         <Typography variant="body1">
           Are we missing any of your favorite, most absurd stories? Let's fix
           that.
         </Typography>
         <Box
           component="form"
+          onSubmit={handleSubmit}
           noValidate
           autoComplete="off"
           sx={{ display: 'flex', flexDirection: 'column' }}
         >
           <TextField
             name="name"
-            label="Name"
+            placeholder="Name"
             type="text"
             value={formValues.name}
             onChange={handleChange}
@@ -68,7 +73,7 @@ const CreateSubject = () => {
           />
           <TextField
             name="title"
-            label="Title"
+            placeholder="Title"
             type="text"
             value={formValues.title}
             onChange={handleChange}
@@ -77,7 +82,7 @@ const CreateSubject = () => {
           />
           <TextField
             name="link"
-            label="Link"
+            placeholder="Link"
             type="text"
             value={formValues.link}
             onChange={handleChange}
@@ -86,7 +91,7 @@ const CreateSubject = () => {
           />
           <TextField
             name="source"
-            label="Source"
+            placeholder="Source"
             type="text"
             value={formValues.source}
             onChange={handleChange}
@@ -94,7 +99,7 @@ const CreateSubject = () => {
             size="small"
           />
           <Button
-            sx={{ alignSelf: 'flex-start' }}
+            sx={{ alignSelf: 'center', mt: 1 }}
             variant="contained"
             color="primary"
             type="submit"

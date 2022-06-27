@@ -4,7 +4,6 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-
 import { getSubjects } from '../store/subjects';
 
 const AllSubjects = () => {
@@ -23,9 +22,9 @@ const AllSubjects = () => {
     <div>
       {subjects.sort(alphabeticalSort).map((subject) => (
         <Button
-          sx={{ marginRight: '5px' }}
+          sx={{ marginRight: '5px', color: 'grey' }}
           key={subject.id}
-          variant="outlined"
+          variant="contained"
           to={`/subjects/${subject.id}`}
           component={RouterLink}
         >
