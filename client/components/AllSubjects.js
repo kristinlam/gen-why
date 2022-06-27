@@ -20,11 +20,12 @@ const AllSubjects = () => {
     <div>
       {subjects.sort(alphabeticalSort).map((subject) => (
         <Button
-          sx={{ margin: 1, color: 'grey' }}
+          m={1}
           key={subject.id}
           variant="contained"
           to={`/subjects/${subject.id}`}
           component={RouterLink}
+          size="large"
         >
           {subject.name}
         </Button>

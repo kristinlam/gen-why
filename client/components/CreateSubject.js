@@ -48,7 +48,7 @@ const CreateSubject = () => {
           borderRadius: 2,
         }}
       >
-        <Typography variant="h3" mb={1}>
+        <Typography variant="h3" color="#a3a380" align="center" mb={1}>
           Suggest a Story
         </Typography>
         <Typography variant="body1">
