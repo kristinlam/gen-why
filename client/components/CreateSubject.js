@@ -4,6 +4,7 @@ import { createSubject } from '../store/singleSubject';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
 const CreateSubject = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const CreateSubject = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Typography variant="h1">Suggest a Story</Typography>
       <Typography variant="body1">
         Are we missing any of your favorite, most absurd stories? Let's fix
@@ -75,7 +76,7 @@ const CreateSubject = () => {
           Submit
         </Button>
       </form>
-    </div>
+    </Container>
   );
 };
 
