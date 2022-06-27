@@ -1,12 +1,6 @@
 body {
   font-family: sans-serif;
 }
-/*
-a:link,
-a:visited {
-  /* text-decoration: none;
-  color: #333; */
-} */
 
 label {
   display: block;
@@ -22,12 +16,18 @@ form div {
   display: inline-block;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 html {
   height: 100vh;
   background: linear-gradient(
       to right bottom,
-      rgba(253, 229, 180, 0.4),
-      rgba(255, 167, 166, 0.4)
+      rgba(253, 229, 180, 0.6),
+      rgba(255, 167, 166, 0.6)
     ),
     url('background.jpg') no-repeat center center fixed;
   /* background: url('background.png') no-repeat center center fixed; */

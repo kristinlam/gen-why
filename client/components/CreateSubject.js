@@ -45,7 +45,7 @@ const CreateSubject = () => {
           background: 'rgba(255,255,255, 0.95)',
           boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, .5)',
           p: 4,
-          borderRadius: 3,
+          borderRadius: 2,
         }}
       >
         <Typography variant="h3" mb={1}>
