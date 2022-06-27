@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import { getSubjects } from '../store/subjects';
 
 const AllSubjects = () => {
@@ -19,7 +20,10 @@ const AllSubjects = () => {
     <div>
       {subjects.sort(alphabeticalSort).map((subject) => (
         <div key={subject.id}>
-          <Link to={`/subjects/${subject.id}`}>{subject.name}</Link> •
+          <Link component={RouterLink} to={`/subjects/${subject.id}`}>
+            {subject.name}
+          </Link>
+          •
         </div>
       ))}
     </div>

@@ -1,15 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { logout } from '../store';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
-  <AppBar>
+  <AppBar color="primary" position="static">
     <Toolbar>
-      <Link to="/">Gen Why</Link>
+      <Link component={RouterLink} to="/">
+        Gen Why
+      </Link>
     </Toolbar>
   </AppBar>
 

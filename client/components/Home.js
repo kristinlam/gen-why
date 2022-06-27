@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import AllSubjects from './AllSubjects';
@@ -16,7 +17,9 @@ export const Home = () => {
         Killed" headlines. As this era of brilliant journalism draws its final
         breath, let's look back on all the things millennials have been blamed
         for.
-        <Link to="/submit">Are we missing anything?</Link>
+        <Link component={RouterLink} to="/submit">
+          Are we missing anything?
+        </Link>
       </Typography>
       <AllSubjects />
     </Container>

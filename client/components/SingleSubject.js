@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import { getSubject } from '../store/singleSubject';
 
 const SingleSubject = (props) => {
@@ -20,6 +21,7 @@ const SingleSubject = (props) => {
       {articles.map((article) => (
         <div>
           <Link
+            component={RouterLink}
             to={{
               pathname: `${article.link}`,
             }}
