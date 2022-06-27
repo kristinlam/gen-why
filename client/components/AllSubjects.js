@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+
 import { getSubjects } from '../store/subjects';
 
 const AllSubjects = () => {
@@ -19,17 +22,14 @@ const AllSubjects = () => {
   return (
     <div>
       {subjects.sort(alphabeticalSort).map((subject) => (
-        <div key={subject.id}>
-          <Link
-            to={`/subjects/${subject.id}`}
-            component={RouterLink}
-            variant="body1"
-            underline="none"
-          >
-            {subject.name}
-          </Link>
-          •
-        </div>
+        <Button
+          key={subject.id}
+          variant="outlined"
+          to={`/subjects/${subject.id}`}
+          component={RouterLink}
+        >
+          {subject.name}
+        </Button>
       ))}
     </div>
   );

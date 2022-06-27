@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 import { getSubject } from '../store/singleSubject';
 
 const SingleSubject = (props) => {
@@ -16,24 +17,47 @@ const SingleSubject = (props) => {
   return (
     <div>
       <h1>{subject.name}</h1>
-      {articles.map((article) => (
-        <div>
-          <Link
-            to={{
-              pathname: `${article.link}`,
-            }}
-            component={RouterLink}
-            target="_blank"
-            rel="noreferrer"
-            variant="body1"
-            underline="none"
-          >
-            {article.title}
-          </Link>
-          <span> • {article.source}</span>
-        </div>
-      ))}
+      <ul>
+        {articles.map((article) => (
+          <li>
+            <Link
+              to={{
+                pathname: `${article.link}`,
+              }}
+              component={RouterLink}
+              target="_blank"
+              rel="noreferrer"
+              variant="body1"
+              underline="none"
+            >
+              {article.title}
+            </Link>
+            <span> • {article.source}</span>
+          </li>
+        ))}
+      </ul>
     </div>
+
+    // <div>
+    //   <h1>{subject.name}</h1>
+    //   {articles.map((article) => (
+    //     <div>
+    //       <Link
+    //         to={{
+    //           pathname: `${article.link}`,
+    //         }}
+    //         component={RouterLink}
+    //         target="_blank"
+    //         rel="noreferrer"
+    //         variant="body1"
+    //         underline="none"
+    //       >
+    //         {article.title}
+    //       </Link>
+    //       <span> • {article.source}</span>
+    //     </div>
+    //   ))}
+    // </div>
   );
 };
 
