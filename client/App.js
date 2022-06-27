@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Routes from './Routes';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { typographyClasses } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -44,10 +43,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div>
-        <Navbar />
-        <Routes />
-      </div>
+      <Navbar />
+      <Routes />
     </ThemeProvider>
   );
 };
