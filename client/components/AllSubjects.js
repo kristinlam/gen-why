@@ -23,6 +23,7 @@ const AllSubjects = () => {
     <div>
       {subjects.sort(alphabeticalSort).map((subject) => (
         <Button
+          sx={{ marginRight: '5px' }}
           key={subject.id}
           variant="outlined"
           to={`/subjects/${subject.id}`}

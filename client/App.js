@@ -7,14 +7,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FFA7A6',
+      main: '#ffb4a2',
     },
     secondary: {
       main: '#FDE5B4',
     },
-    // background: {
-    //   default: '#FDE5B4',
-    // },
+    background: {
+      default: 'transparent',
+    },
     text: {
       primary: '#222222',
     },

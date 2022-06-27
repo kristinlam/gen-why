@@ -6,7 +6,7 @@ import AllSubjects from './AllSubjects';
 export const Home = () => {
   return (
     <Container maxWidth="lg">
-      <Typography variant="body1">
+      <Typography variant="body1" mt={4}>
         Millenials (Gen Y) have been blamed for ruining a lot of things. Golf.
         Cruise ships. Diamonds. The media was quick to point fingers at us for
         the cold-blooded murders of entire industries and timeless traditions,
