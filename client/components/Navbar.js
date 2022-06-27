@@ -13,19 +13,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       <Link
         to="/"
         component={RouterLink}
-        color="white"
         variant="h5"
         underline="none"
         sx={{ flexGrow: 1 }}
       >
-        Gen Why
+        <img className="logo" src="/logo.png" />
       </Link>
       <Link
         to="/submit"
         component={RouterLink}
-        color="white"
         variant="body1"
         underline="none"
+        color="#333"
       >
         Suggest a Story
       </Link>
