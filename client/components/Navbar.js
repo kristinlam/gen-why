@@ -16,6 +16,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         color="white"
         variant="h5"
         underline="none"
+        sx={{ flexGrow: 1 }}
       >
         Gen Why
       </Link>
