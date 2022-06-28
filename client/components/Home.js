@@ -23,7 +23,7 @@ export const Home = () => {
           media was quick to point fingers at us for the cold-blooded murders of
           entire industries and timeless traditions, like wearing pants. After
           much online backlash, these articles are nearing their end — which is
-          how we've manage to kill the "How Millennials Killed" headlines. As
+          how we've managed to kill the "How Millennials Killed" headlines. As
           this era of brilliant journalism draws its final breath, let's look
           back on all the things millennials have been blamed for.
         </Typography>
