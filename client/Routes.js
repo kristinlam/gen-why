@@ -4,7 +4,6 @@ import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 import AdminHome from './components/AdminHome';
 import Home from './components/Home';
-import SingleSubject from './components/SingleSubject';
 import CreateSubject from './components/CreateSubject';
 import { me } from './store';
 
@@ -24,28 +23,14 @@ class Routes extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
           <Route path="/submit" component={CreateSubject} />
-          <Route path="/subjects/:id" component={SingleSubject} />
-          {/* Note: only admins should be able to log in */}
-          if(isLoggedIn)
-          {
+
+          {isLoggedIn && (
             <Switch>
-              <Route path="/home" component={AdminHome} />
-              <Redirect to="/home" />
+              <Route path="/admin" component={AdminHome} />
+              <Redirect to="/admin" />
             </Switch>
-          }
-          {/* {isLoggedIn ? (
-            <Switch>
-              <Route path="/home" component={Home} />
-              <Redirect to="/home" />
-            </Switch>
-          ) : (
-            <Switch>
-              <Route path="/login" component={Login} />
-              <Route path="/signup" component={Signup} />
-            </Switch>
-          )} */}
+          )}
         </Switch>
       </div>
     );
