@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import { getSubjects } from '../store/subjects';
 
@@ -25,11 +25,11 @@ const AllSubjects = () => {
           sx={{ margin: 1 }}
           key={subject.id}
           variant="contained"
-          to={`/subjects/${subject.id}`}
-          component={RouterLink}
           size="large"
         >
-          {subject.name}
+          <Link href={subject.link} target="_blank" color="secondary">
+            {subject.name}
+          </Link>
         </Button>
       ))}
     </div>
