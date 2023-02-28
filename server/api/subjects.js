@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { Subject, Article },
+  models: { Subject },
 } = require('../db');
 module.exports = router;
 
@@ -22,9 +22,7 @@ router.get('/', async (req, res, next) => {
 // GET /api/subjects/:subjectId
 router.get('/:subjectId', async (req, res, next) => {
   try {
-    const subject = await Subject.findByPk(req.params.subjectId, {
-      include: Article,
-    });
+    const subject = await Subject.findByPk(req.params.subjectId);
     res.json(subject);
   } catch (err) {
     next(err);
@@ -39,16 +37,7 @@ router.post('/', async (req, res, next) => {
       defaults: {
         status: 'approved',
       },
-      include: Article,
     });
-
-    const article = await Article.create({
-      title: req.body.title,
-      link: req.body.link,
-      source: req.body.source,
-    });
-
-    await subject.addArticle(article);
 
     await subject.reload();
 

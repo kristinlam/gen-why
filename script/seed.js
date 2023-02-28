@@ -2,28 +2,19 @@
 
 const {
   db,
-  models: { User, Subject, Article },
+  models: { User, Subject },
 } = require('../server/db');
 
 const subjectData = [
-  { name: 'napkins', status: 'approved' },
-  { name: 'diamonds', status: 'approved' },
-  { name: 'pants', status: 'approved' },
-  { name: 'saying "Merry Christmas"', status: 'approved' },
-  { name: 'honeymoons', status: 'approved' },
-];
-
-const articleData = [
   {
-    title:
-      "Millennials Strike Again: This Time We Are Killing Cash And 'Merry Christmas'",
-    link: 'https://www.npr.org/2018/12/21/678148112/millennials-strike-again-this-time-we-are-killing-cash-and-merry-christmas',
-    source: 'NPR',
+    name: 'pants',
+    link: 'https://jezebel.com/pants-canceled-1828581801',
+    status: 'approved',
   },
   {
-    title: 'Pants Canceled',
-    link: 'https://jezebel.com/pants-canceled-1828581801',
-    source: 'Jezebel',
+    name: 'saying "Merry Christmas"',
+    link: 'https://www.npr.org/2018/12/21/678148112/millennials-strike-again-this-time-we-are-killing-cash-and-merry-christmas',
+    status: 'approved',
   },
 ];
 
@@ -48,22 +39,8 @@ async function seed() {
     })
   );
 
-  // Create Articles
-  const articles = await Promise.all(
-    articleData.map((article) => {
-      return Article.create(article);
-    })
-  );
-
-  // Set articles to subjects
-  const [napkins, diamonds, pants, christmas, honeymoons] = subjects;
-  const [christmasArticle, pantsArticle] = articles;
-  await christmas.addArticle(christmasArticle);
-  await pants.addArticle(pantsArticle);
-
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${subjects.length} subjects`);
-  console.log(`seeded ${articles.length} articles`);
 
   console.log(`seeded successfully`);
   // return {
