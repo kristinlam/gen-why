@@ -10,6 +10,14 @@ const Subject = db.define('subject', {
       notEmpty: true,
     },
   },
+  link: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      isUrl: true,
+    },
+  },
   status: {
     type: Sequelize.ENUM('pending', 'approved', 'rejected'),
     defaultValue: 'pending',
