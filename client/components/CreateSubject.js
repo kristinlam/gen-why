@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { createSubject } from '../store/singleSubject';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -11,9 +12,7 @@ const CreateSubject = () => {
 
   const defaultValues = {
     name: '',
-    title: '',
     link: '',
-    source: '',
   };
   const [formValues, setFormValues] = useState(defaultValues);
 
@@ -71,28 +70,10 @@ const CreateSubject = () => {
             size="small"
           />
           <TextField
-            name="title"
-            placeholder="Title"
-            type="text"
-            value={formValues.title}
-            onChange={handleChange}
-            variant="outlined"
-            size="small"
-          />
-          <TextField
             name="link"
             placeholder="Link"
             type="text"
             value={formValues.link}
-            onChange={handleChange}
-            variant="outlined"
-            size="small"
-          />
-          <TextField
-            name="source"
-            placeholder="Source"
-            type="text"
-            value={formValues.source}
             onChange={handleChange}
             variant="outlined"
             size="small"

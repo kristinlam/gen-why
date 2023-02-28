@@ -32,16 +32,7 @@ router.get('/:subjectId', async (req, res, next) => {
 // POST /api/subjects
 router.post('/', async (req, res, next) => {
   try {
-    const [subject] = await Subject.findOrCreate({
-      where: { name: req.body.name },
-      defaults: {
-        status: 'approved',
-      },
-    });
-
-    await subject.reload();
-
-    res.json(subject);
+    res.status(201).send(await Subject.create(req.body));
   } catch (err) {
     next(err);
   }
