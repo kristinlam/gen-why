@@ -1,15 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { Login, Signup } from './components/AuthForm';
+import { withRouter, Route, Switch } from 'react-router-dom';
+import { Login } from './components/AuthForm';
 import AdminHome from './components/AdminHome';
 import Home from './components/Home';
 import CreateSubject from './components/CreateSubject';
 import { me } from './store';
 
-/**
- * COMPONENT
- */
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
@@ -28,7 +25,6 @@ class Routes extends Component {
           {isLoggedIn && (
             <Switch>
               <Route path="/admin" component={AdminHome} />
-              <Redirect to="/admin" />
             </Switch>
           )}
         </Switch>
@@ -39,8 +35,6 @@ class Routes extends Component {
 
 const mapState = (state) => {
   return {
-    // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
-    // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
   };
 };
