@@ -4,7 +4,7 @@ const {
 } = require('../db');
 module.exports = router;
 
-// GET /api/subjects
+// GET /api/subjects/:status
 router.get('/:status', async (req, res, next) => {
   try {
     const subjects = await Subject.findAll({
@@ -35,6 +35,16 @@ router.post('/', async (req, res, next) => {
     res.status(201).send(await Subject.create(req.body));
   } catch (err) {
     next(err);
+  }
+});
+
+// PUT /api/subjects/:subjectId
+router.put('/:subjectId', async (req, res, next) => {
+  try {
+    const subject = await Subject.findByPk(req.params.subjectId);
+    res.send(await subject.update(req.body));
+  } catch (error) {
+    next(error);
   }
 });
 

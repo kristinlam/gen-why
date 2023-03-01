@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSubjects, deleteSubject } from '../store/subjects';
+import { updateSubject } from '../store/singleSubject';
 import { connect } from 'react-redux';
 import Button from '@mui/material/Button';
 
@@ -12,21 +13,22 @@ export const AdminHome = ({ username }) => {
     dispatch(getSubjects('pending'));
   }, []);
 
-  const handleDelete = (id) => {
+  const handleApprove = async (subject) => {
+    await dispatch(updateSubject({ ...subject, status: 'approved' }));
+    dispatch(getSubjects('pending'));
+  };
+
+  const handleReject = (id) => {
     dispatch(deleteSubject(id));
   };
 
   const pendingSubjects = subjects.map((subject) => {
     return (
       <div key={subject.id}>
-        <div>
-          <p>{subject.name}</p>
-          <p>{subject.link}</p>
-        </div>
-        <div>
-          <Button>Approve</Button>
-          <Button onClick={() => handleDelete(subject.id)}>Reject</Button>
-        </div>
+        <p>{subject.name}</p>
+        <p>{subject.link}</p>
+        <Button onClick={() => handleApprove(subject)}>Approve</Button>
+        <Button onClick={() => handleReject(subject.id)}>Reject</Button>
       </div>
     );
   });
