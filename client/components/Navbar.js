@@ -22,6 +22,15 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       {isLoggedIn ? (
         <div>
           <Link
+            to="/submit"
+            component={RouterLink}
+            variant="body1"
+            underline="none"
+            color="#333"
+          >
+            Suggest a Story
+          </Link>
+          <Link
             to="/home"
             component={RouterLink}
             variant="body1"
