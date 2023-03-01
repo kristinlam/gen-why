@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSubjects } from '../store/subjects';
 import { connect } from 'react-redux';
+import Button from '@mui/material/Button';
 
-/**
- * COMPONENT
- */
-export const AdminHome = (props) => {
-  const { username } = props;
+export const AdminHome = ({ username }) => {
+  const subjects = useSelector((state) => state.subjects);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSubjects('pending'));
+  }, [dispatch]);
+
+  const pendingSubjects = subjects.map((subject) => {
+    return (
+      <div>
+        <div>
+          <p>{subject.name}</p>
+          <p>{subject.link}</p>
+        </div>
+        <div>
+          <Button>Approve</Button>
+          <Button>Reject</Button>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div>
       <h3>Welcome, {username}</h3>
       <p>This is admin control. Here you can approve user submissions.</p>
+      {pendingSubjects}
     </div>
   );
 };
