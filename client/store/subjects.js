@@ -9,9 +9,9 @@ const _getSubjects = (subjects) => {
   };
 };
 
-export const getSubjects = () => {
+export const getSubjects = (status) => {
   return async (dispatch) => {
-    const { data: subjects } = await axios.get('/api/subjects');
+    const { data: subjects } = await axios.get(`/api/subjects/${status}`);
     dispatch(_getSubjects(subjects));
   };
 };

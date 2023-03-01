@@ -5,12 +5,12 @@ const {
 module.exports = router;
 
 // GET /api/subjects
-router.get('/', async (req, res, next) => {
+router.get('/:status', async (req, res, next) => {
   try {
     const subjects = await Subject.findAll({
       // attributes: ['id', 'name', 'createdAt', 'updatedAt'],
       where: {
-        // status: 'approved',
+        status: req.params.status,
       },
     });
     res.json(subjects);

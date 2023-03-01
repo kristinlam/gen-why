@@ -8,7 +8,7 @@ const AllSubjects = () => {
   const subjects = useSelector((state) => state.subjects);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getSubjects());
+    dispatch(getSubjects('approved'));
   }, [dispatch]);
 
   // sorting function
