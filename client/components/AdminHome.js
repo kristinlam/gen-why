@@ -1,26 +1,31 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSubjects } from '../store/subjects';
+import { getSubjects, deleteSubject } from '../store/subjects';
 import { connect } from 'react-redux';
 import Button from '@mui/material/Button';
 
 export const AdminHome = ({ username }) => {
   const subjects = useSelector((state) => state.subjects);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getSubjects('pending'));
-  }, [dispatch]);
+  }, []);
+
+  const handleDelete = (id) => {
+    dispatch(deleteSubject(id));
+  };
 
   const pendingSubjects = subjects.map((subject) => {
     return (
-      <div>
+      <div key={subject.id}>
         <div>
           <p>{subject.name}</p>
           <p>{subject.link}</p>
         </div>
         <div>
           <Button>Approve</Button>
-          <Button>Reject</Button>
+          <Button onClick={() => handleDelete(subject.id)}>Reject</Button>
         </div>
       </div>
     );

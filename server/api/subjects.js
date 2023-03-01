@@ -37,3 +37,14 @@ router.post('/', async (req, res, next) => {
     next(err);
   }
 });
+
+// DELETE /api/subjects/:subjectId
+router.delete('/:subjectId', async (req, res, next) => {
+  try {
+    const subject = await Subject.findByPk(req.params.subjectId);
+    await subject.destroy();
+    res.send(subject);
+  } catch (err) {
+    next(err);
+  }
+});

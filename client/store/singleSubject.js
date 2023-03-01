@@ -24,9 +24,9 @@ export const getSubject = (id) => {
   };
 };
 
-export const createSubject = (story) => {
+export const createSubject = (id) => {
   return async (dispatch) => {
-    const { data: subject } = await axios.post('/api/subjects', story);
+    const { data: subject } = await axios.post('/api/subjects', id);
     dispatch(_createSubject(subject));
   };
 };
