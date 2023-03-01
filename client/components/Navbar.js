@@ -31,7 +31,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             Suggest a Story
           </Link>
           <Link
-            to="/home"
+            to="/admin"
             component={RouterLink}
             variant="body1"
             underline="none"
