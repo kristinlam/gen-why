@@ -19,13 +19,14 @@ class Routes extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
           <Route path="/submit" component={CreateSubject} />
+          <Route path="/login">
+            {isLoggedIn ? <Redirect to="/admin" /> : <Login />}
+          </Route>
         </Switch>
         {isLoggedIn && (
           <Switch>
             <Route path="/admin" component={AdminHome} />
-            <Redirect to="/admin" />
           </Switch>
         )}
       </div>
