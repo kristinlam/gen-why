@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Route, Switch } from 'react-router-dom';
+import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login } from './components/AuthForm';
 import AdminHome from './components/AdminHome';
 import Home from './components/Home';
@@ -21,13 +21,13 @@ class Routes extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/submit" component={CreateSubject} />
-
-          {isLoggedIn && (
-            <Switch>
-              <Route path="/admin" component={AdminHome} />
-            </Switch>
-          )}
         </Switch>
+        {isLoggedIn && (
+          <Switch>
+            <Route path="/admin" component={AdminHome} />
+            <Redirect to="/admin" />
+          </Switch>
+        )}
       </div>
     );
   }
