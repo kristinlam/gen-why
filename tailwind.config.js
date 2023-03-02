@@ -12,8 +12,8 @@ module.exports = {
       yellow: '#FFAC44',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Bungee Shade', 'serif'],
+      sans: ['Golos Text', 'sans-serif'],
+      serif: ['Climate Crisis', 'serif'],
     },
     extend: {},
   },
