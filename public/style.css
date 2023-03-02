@@ -22,21 +22,6 @@ ul {
   margin: 0;
 }
 
-html {
-  height: 100vh;
-  background: linear-gradient(
-      to right bottom,
-      rgba(253, 229, 180, 0.6),
-      rgba(255, 167, 166, 0.6)
-    ),
-    url('background.jpg') no-repeat center center fixed;
-  /* background: url('background.png') no-repeat center center fixed; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 .logo {
   margin-top: 1rem;
   height: 3.5rem;
