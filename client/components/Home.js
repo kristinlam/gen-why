@@ -4,7 +4,7 @@ import AllSubjects from './AllSubjects';
 export const Home = () => {
   return (
     <div>
-      <h1>Gen Why</h1>
+      <h1 className="text-3xl font-bold underline">Gen Why</h1>
       <p>
         Millenials (Gen Y) have been blamed for ruining a lot of things. The
         media was quick to point fingers at us for the cold-blooded murders of
