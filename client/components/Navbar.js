@@ -6,15 +6,13 @@ import { Link } from 'react-router-dom';
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <div>
-      <Link to="/">
-        <img className="logo" src="/logo.png" />
-      </Link>
-
       {isLoggedIn ? (
         <div>
           <Link to="/submit">Suggest a Story</Link>
           <Link to="/admin">Admin Control</Link>
-          <Link>Log Out</Link>
+          <Link onClick={handleClick} to="#">
+            Log Out
+          </Link>
         </div>
       ) : (
         <div>
