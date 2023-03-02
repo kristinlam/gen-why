@@ -8,7 +8,7 @@
   }
 
   body {
-    font-family: sans-serif;
+    font-family: 'Golos Text', sans-serif;
   }
 
   label {
@@ -32,6 +32,30 @@
   }
 }
 
+@layer colors {
+  .black {
+    color: #060a0d;
+  }
+  .cream {
+    color: #f3e7d7;
+  }
+  .green {
+    color: #145048;
+  }
+  .blue {
+    color: #014ba4;
+  }
+  .purple {
+    color: #b25685;
+  }
+  .red {
+    color: #cd4022;
+  }
+  .yellow {
+    color: #ffac44;
+  }
+}
+
 .subject-list {
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Climate Crisis', serif;
 }

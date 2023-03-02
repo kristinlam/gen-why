@@ -3,18 +3,16 @@ import AllSubjects from './AllSubjects';
 
 export const Home = () => {
   return (
-    <div>
+    <div className="p-10">
       <AllSubjects />
-      <div>
-        <h1 className="text-3xl font-bold underline">Gen Why</h1>
+      <div className="fixed bottom-0 right-0 w-1/3 m-10">
+        <h1 className="text-3xl font-bold mb-2.5 text-red">Gen Why</h1>
         <p>
-          Millenials (Gen Y) have been blamed for ruining a lot of things. The
-          media was quick to point fingers at us for the cold-blooded murders of
-          entire industries and timeless traditions, like wearing pants. After
-          much online backlash, these articles are nearing their end — which is
-          how we've managed to kill the "How Millennials Killed" headlines. As
-          this era of brilliant journalism draws its final breath, let's look
-          back on all the things millennials have been blamed for.
+          Millenials have gotten a lot of flak from the media for ruining
+          everything from yogurt to democracy. After much backlash, these
+          articles pittered out — the story of how we killed the "How
+          Millennials Killed" headlines. As this era of journalism draws to a
+          close, let's take a look back on everything we've been blamed for.
         </p>
       </div>
     </div>

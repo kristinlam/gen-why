@@ -16,7 +16,6 @@ const AllSubjects = () => {
     return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
   };
 
-  // give each subject a color
   const selectColor = (index) => {
     const colors = ['blue', 'purple', 'red', 'yellow', 'green'];
     return colors[index % colors.length];
@@ -24,17 +23,22 @@ const AllSubjects = () => {
 
   return (
     <div className="subject-list">
-      {subjects.sort(alphabeticalSort).map((subject, index) => (
-        <div key={subject.id} className="text-6xl block">
-          <a
-            href={subject.link}
-            className={`text-${selectColor(index)}`}
-            target="_blank"
+      <ul>
+        {subjects.sort(alphabeticalSort).map((subject, index) => (
+          <li
+            key={subject.id}
+            className={`text-7xl mb-6 ${selectColor(index)}`}
           >
-            {subject.name}
-          </a>
-        </div>
-      ))}
+            <a
+              href={subject.link}
+              className={`text-${selectColor(index)}`}
+              target="_blank"
+            >
+              {subject.name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

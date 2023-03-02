@@ -43,7 +43,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Graphik, sans-serif;
+  font-family: Golos Text, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -424,7 +424,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Golos Text', sans-serif;
 }
 
 label {
@@ -623,6 +623,38 @@ ul {
   position: relative;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.m-10 {
+  margin: 2.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-2\.5 {
+  margin-bottom: 0.625rem;
+}
+
 .block {
   display: block;
 }
@@ -647,6 +679,10 @@ ul {
   display: none;
 }
 
+.w-1\/3 {
+  width: 33.333333%;
+}
+
 .shrink {
   flex-shrink: 1;
 }
@@ -663,14 +699,23 @@ ul {
   border-width: 1px;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
+.text-7xl {
+  font-size: 4.5rem;
   line-height: 1;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .font-bold {
@@ -689,13 +734,24 @@ ul {
   text-transform: capitalize;
 }
 
-.text-yellow {
+.text-green {
   --tw-text-opacity: 1;
-  color: rgb(255 172 68 / var(--tw-text-opacity));
+  color: rgb(20 80 72 / var(--tw-text-opacity));
 }
 
-.underline {
-  text-decoration-line: underline;
+.text-red {
+  --tw-text-opacity: 1;
+  color: rgb(205 64 34 / var(--tw-text-opacity));
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(6 10 13 / var(--tw-text-opacity));
+}
+
+.text-blue {
+  --tw-text-opacity: 1;
+  color: rgb(1 75 164 / var(--tw-text-opacity));
 }
 
 .outline {
@@ -723,6 +779,36 @@ ul {
   transition-duration: 150ms;
 }
 
+@layer colors {
+  .black {
+    color: #060a0d;
+  }
+
+  .cream {
+    color: #f3e7d7;
+  }
+
+  .green {
+    color: #145048;
+  }
+
+  .blue {
+    color: #014ba4;
+  }
+
+  .purple {
+    color: #b25685;
+  }
+
+  .red {
+    color: #cd4022;
+  }
+
+  .yellow {
+    color: #ffac44;
+  }
+}
+
 .subject-list {
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Climate Crisis', serif;
 }
