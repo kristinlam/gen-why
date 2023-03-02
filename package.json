@@ -36,7 +36,6 @@
     "@babel/register": "^7.12.10",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/material": "^5.8.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "axios-mock-adapter": "^1.16.0",
     "babel-loader": "^8.2.2",
