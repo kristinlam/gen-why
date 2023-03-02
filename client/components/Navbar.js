@@ -5,21 +5,15 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <div>
-      {isLoggedIn ? (
-        <div>
-          <Link to="/submit">Suggest a Story</Link>
-          <Link to="/admin">Admin Control</Link>
-          <Link onClick={handleClick} to="#">
-            Log Out
-          </Link>
-        </div>
-      ) : (
-        <div>
-          <Link to="/submit">Suggest a Story</Link>
-        </div>
-      )}
-    </div>
+    {isLoggedIn && (
+      <nav className="flex justify-between">
+        <Link to="/">Home</Link>
+        <Link to="/submit">Suggest a Story</Link>
+        <Link onClick={handleClick} to="#">
+          Log Out
+        </Link>
+      </nav>
+    )}
   </div>
 );
 

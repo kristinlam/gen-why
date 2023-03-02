@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getSubjects, deleteSubject } from '../store/subjects';
 import { updateSubject } from '../store/singleSubject';
 import { connect } from 'react-redux';
+import Navbar from './Navbar';
 
 export const AdminHome = ({ username }) => {
   const subjects = useSelector((state) => state.subjects);
@@ -34,6 +35,7 @@ export const AdminHome = ({ username }) => {
 
   return (
     <div>
+      <Navbar />
       <h3>Welcome, {username}</h3>
       <p>This is admin control. Here you can approve user submissions.</p>
       {pendingSubjects}
