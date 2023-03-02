@@ -9,26 +9,31 @@ const AllSubjects = () => {
     dispatch(getSubjects('approved'));
   }, [dispatch]);
 
-  // sorting function
-  function alphabeticalSort(a, b) {
+  // sorting alphabetically
+  const alphabeticalSort = (a, b) => {
     a.name = a.name.toLowerCase();
     b.name = b.name.toLowerCase();
     return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
-  }
+  };
+
+  // give each subject a color
+  const selectColor = (index) => {
+    const colors = ['blue', 'purple', 'red', 'yellow', 'green'];
+    return colors[index % colors.length];
+  };
 
   return (
-    <div>
-      {subjects.sort(alphabeticalSort).map((subject) => (
-        <button
-          sx={{ margin: 1 }}
-          key={subject.id}
-          variant="contained"
-          size="large"
-        >
-          <a href={subject.link} target="_blank" color="secondary">
+    <div className="subject-list">
+      {subjects.sort(alphabeticalSort).map((subject, index) => (
+        <div key={subject.id} className="text-6xl block">
+          <a
+            href={subject.link}
+            className={`text-${selectColor(index)}`}
+            target="_blank"
+          >
             {subject.name}
           </a>
-        </button>
+        </div>
       ))}
     </div>
   );
