@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Link from '@mui/material/Link';
-import Button from '@mui/material/Button';
 import { getSubjects } from '../store/subjects';
 
 const AllSubjects = () => {
@@ -21,16 +19,16 @@ const AllSubjects = () => {
   return (
     <div>
       {subjects.sort(alphabeticalSort).map((subject) => (
-        <Button
+        <button
           sx={{ margin: 1 }}
           key={subject.id}
           variant="contained"
           size="large"
         >
-          <Link href={subject.link} target="_blank" color="secondary">
+          <a href={subject.link} target="_blank" color="secondary">
             {subject.name}
-          </Link>
-        </Button>
+          </a>
+        </button>
       ))}
     </div>
   );

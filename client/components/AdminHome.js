@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getSubjects, deleteSubject } from '../store/subjects';
 import { updateSubject } from '../store/singleSubject';
 import { connect } from 'react-redux';
-import Button from '@mui/material/Button';
 
 export const AdminHome = ({ username }) => {
   const subjects = useSelector((state) => state.subjects);
@@ -27,8 +26,8 @@ export const AdminHome = ({ username }) => {
       <div key={subject.id}>
         <p>{subject.name}</p>
         <p>{subject.link}</p>
-        <Button onClick={() => handleApprove(subject)}>Approve</Button>
-        <Button onClick={() => handleReject(subject.id)}>Reject</Button>
+        <button onClick={() => handleApprove(subject)}>Approve</button>
+        <button onClick={() => handleReject(subject.id)}>Reject</button>
       </div>
     );
   });
