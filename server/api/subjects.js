@@ -41,9 +41,9 @@ router.post('/', async (req, res, next) => {
     } else if (!req.body.link) {
       res.status(400).send({ error: 'Link is required' });
     } else if (err.name === 'SequelizeUniqueConstraintError') {
-      if (err.fields.includes('name')) {
+      if ('name' in err.fields) {
         res.status(409).send({ error: 'Topic already exists' });
-      } else if (err.fields.includes('link')) {
+      } else if ('link' in err.fields) {
         res.status(409).send({ error: 'Link already exists' });
       }
     } else if (err.name === 'SequelizeValidationError') {
