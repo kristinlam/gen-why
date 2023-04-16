@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authenticate } from '../store';
+import { Link } from 'react-router-dom';
 
 const AuthForm = ({ name, displayName }) => {
   const error = useSelector((state) => state.auth.error);
@@ -21,7 +22,11 @@ const AuthForm = ({ name, displayName }) => {
           {name === 'login' ? 'Admin Login' : "Let's get started!"}
         </h1>
 
-        <form className="flex flex-col" onSubmit={handleSubmit} name={name}>
+        <form
+          className="flex flex-col mb-8"
+          onSubmit={handleSubmit}
+          name={name}
+        >
           <input
             className="w-full mb-3 border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
             name="username"
@@ -40,8 +45,15 @@ const AuthForm = ({ name, displayName }) => {
           >
             {displayName}
           </button>
-          {error && error.response && <div> {error.response.data} </div>}
+          {error && error.response && (
+            <div className="mt-4 text-center text-red">
+              {error.response.data}
+            </div>
+          )}
         </form>
+        <Link to="/" className="text-right">
+          Go back
+        </Link>
       </div>
     </div>
   );
