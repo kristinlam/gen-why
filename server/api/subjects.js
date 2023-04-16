@@ -31,12 +31,28 @@ router.get('/:subjectId', async (req, res, next) => {
   }
 });
 
-// POST /api/subjects
 router.post('/', async (req, res, next) => {
   try {
-    res.status(201).send(await Subject.create(req.body));
+    const subject = await Subject.create(req.body);
+    res.status(201).send(subject);
   } catch (err) {
-    next(err);
+    if (!req.body.name) {
+      res.status(400).send({ error: 'Topic is required' });
+    } else if (!req.body.link) {
+      res.status(400).send({ error: 'Link is required' });
+    } else if (err.name === 'SequelizeUniqueConstraintError') {
+      if (err.fields.includes('name')) {
+        res.status(409).send({ error: 'Topic already exists' });
+      } else if (err.fields.includes('link')) {
+        res.status(409).send({ error: 'Link already exists' });
+      }
+    } else if (err.name === 'SequelizeValidationError') {
+      if (err.errors[0].validatorKey === 'isUrl') {
+        res.status(400).send({ error: 'Link is not a valid URL' });
+      }
+    } else {
+      next(err);
+    }
   }
 });
 

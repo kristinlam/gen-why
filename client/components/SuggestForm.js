@@ -4,15 +4,15 @@ import { createSubject } from '../store/singleSubject';
 import { Link } from 'react-router-dom';
 
 const SuggestForm = () => {
-  const dispatch = useDispatch();
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
-
   const defaultValues = {
     name: '',
     link: '',
   };
+
   const [formValues, setFormValues] = useState(defaultValues);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [successStatus, setSuccessStatus] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = (evt) => {
     setFormValues({ ...formValues, [evt.target.name]: evt.target.value });
@@ -20,15 +20,18 @@ const SuggestForm = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+
     dispatch(createSubject(formValues))
       .then(() => {
         setFormValues(defaultValues);
-        setError(null);
-        setSuccess(true);
+        setErrorMsg(null);
+        setSuccessStatus(true);
       })
       .catch((err) => {
-        setSuccess(false);
-        setError(err.message);
+        setSuccessStatus(false);
+        err.response.data.error
+          ? setErrorMsg(err.response.data.error)
+          : setErrorMsg('Request failed. Please try again.');
       });
   };
 
@@ -66,8 +69,10 @@ const SuggestForm = () => {
           >
             Submit
           </button>
-          {error && <div className="mt-4 text-center text-red">{error}</div>}
-          {success && (
+          {errorMsg && (
+            <div className="mt-4 text-center text-red">{errorMsg}</div>
+          )}
+          {successStatus && (
             <div className="mt-4 text-center text-green">
               <p>Thank you for your submission!</p>
               <p>We will review it as soon as we can.</p>
