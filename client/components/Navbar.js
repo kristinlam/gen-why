@@ -19,7 +19,7 @@ const Navbar = () => {
             <Link className="mr-6" to="/">
               Home
             </Link>
-            <Link to="/submit">Suggest a Story</Link>
+            <Link to="/suggestions">Suggest a Story</Link>
           </div>
           <div>
             <Link onClick={handleClick} to="/login">

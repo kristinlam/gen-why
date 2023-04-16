@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createSubject } from '../store/singleSubject';
 import { Link } from 'react-router-dom';
 
-const CreateSubject = () => {
+const SuggestForm = () => {
   const dispatch = useDispatch();
 
   const defaultValues = {
@@ -61,4 +61,4 @@ const CreateSubject = () => {
   );
 };
 
-export default CreateSubject;
+export default SuggestForm;

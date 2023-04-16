@@ -4,7 +4,7 @@ import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login } from './components/AuthForm';
 import AdminHome from './components/AdminHome';
 import Home from './components/Home';
-import CreateSubject from './components/CreateSubject';
+import SuggestForm from './components/SuggestForm';
 import { me } from './store';
 
 const Routes = () => {
@@ -19,7 +19,7 @@ const Routes = () => {
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/submit" component={CreateSubject} />
+        <Route path="/suggestions" component={SuggestForm} />
         <Route path="/login">
           {isLoggedIn ? <Redirect to="/admin" /> : <Login />}
         </Route>

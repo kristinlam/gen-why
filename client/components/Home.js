@@ -21,7 +21,7 @@ export const Home = () => {
           Millennials Killed" headlines. As this era of journalism draws to a
           close, let's take a look back on everything we've been blamed for.
           Don't see something?{' '}
-          <Link to="/submit" className="text-red font-bold">
+          <Link to="/suggestions" className="text-red font-bold">
             Suggest a story.
           </Link>
         </p>
