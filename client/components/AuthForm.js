@@ -15,25 +15,38 @@ const AuthForm = ({ name, displayName }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+    <div className="px-6 flex items-center justify-center h-screen">
+      <div className="bg-white w-screen md:w-1/2 lg:w-1/3 flex flex-col rounded-3xl py-14 px-12">
+        <h1 className="text-center mb-10">
+          {name === 'login' ? 'Admin Login' : "Let's get started!"}
+        </h1>
+
+        <form className="flex flex-col" onSubmit={handleSubmit} name={name}>
+          <div className="mb-3">
+            <input
+              className="w-full border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
+              name="username"
+              placeholder="Username"
+              type="text"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              className="w-full border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+          </div>
+          <button
+            className="bg-yellow rounded-lg block w-full p-3 font-medium"
+            type="submit"
+          >
+            {displayName}
+          </button>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      </div>
     </div>
   );
 };
