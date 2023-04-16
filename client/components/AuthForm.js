@@ -1,9 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { authenticate } from '../store';
 
-const AuthForm = (props) => {
-  const { name, displayName, handleSubmit, error } = props;
+const AuthForm = ({ name, displayName }) => {
+  const error = useSelector((state) => state.auth.error);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    const formName = evt.target.name;
+    const username = evt.target.username.value;
+    const password = evt.target.password.value;
+    dispatch(authenticate(username, password, formName));
+  };
 
   return (
     <div>
@@ -29,33 +38,5 @@ const AuthForm = (props) => {
   );
 };
 
-const mapLogin = (state) => {
-  return {
-    name: 'login',
-    displayName: 'Login',
-    error: state.auth.error,
-  };
-};
-
-const mapSignup = (state) => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.auth.error,
-  };
-};
-
-const mapDispatch = (dispatch) => {
-  return {
-    handleSubmit(evt) {
-      evt.preventDefault();
-      const formName = evt.target.name;
-      const username = evt.target.username.value;
-      const password = evt.target.password.value;
-      dispatch(authenticate(username, password, formName));
-    },
-  };
-};
-
-export const Login = connect(mapLogin, mapDispatch)(AuthForm);
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm);
+export const Login = () => <AuthForm name="login" displayName="Login" />;
+export const Signup = () => <AuthForm name="signup" displayName="Sign Up" />;
