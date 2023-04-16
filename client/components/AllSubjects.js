@@ -22,10 +22,14 @@ const AllSubjects = () => {
     return colors[index % colors.length];
   };
 
+  // Changes to shallow copy of nested objects (such as objects within arrays) will cause changes to original objects.
+  // Make deep copy of state before sorting.
+  const deepCopyOfSubjects = JSON.parse(JSON.stringify(subjects));
+
   return (
     <div className="subject-list">
       <ul>
-        {subjects.sort(alphabeticalSort).map((subject, index) => (
+        {deepCopyOfSubjects.sort(alphabeticalSort).map((subject, index) => (
           <motion.li
             key={subject.id}
             className={`text-7xl mb-6 ${selectColor(index)}`}
