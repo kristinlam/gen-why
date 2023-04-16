@@ -1,34 +1,35 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div>
-    {isLoggedIn && (
-      <nav className="flex justify-between">
-        <Link to="/">Home</Link>
-        <Link to="/submit">Suggest a Story</Link>
-        <Link onClick={handleClick} to="#">
-          Log Out
-        </Link>
-      </nav>
-    )}
-  </div>
-);
+const Navbar = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.id);
+  const dispatch = useDispatch();
 
-const mapState = (state) => {
-  return {
-    isLoggedIn: !!state.auth.id,
+  const handleClick = () => {
+    dispatch(logout());
   };
+
+  return (
+    <div>
+      {isLoggedIn && (
+        <nav className="flex justify-between bg-green p-5 text-cream">
+          <div>
+            <Link className="mr-6" to="/">
+              Home
+            </Link>
+            <Link to="/submit">Suggest a Story</Link>
+          </div>
+          <div>
+            <Link onClick={handleClick} to="/">
+              Log Out
+            </Link>
+          </div>
+        </nav>
+      )}
+    </div>
+  );
 };
 
-const mapDispatch = (dispatch) => {
-  return {
-    handleClick() {
-      dispatch(logout());
-    },
-  };
-};
-
-export default connect(mapState, mapDispatch)(Navbar);
+export default Navbar;
