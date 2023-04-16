@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const TOKEN = 'token';
 const GET_SUBJECTS = 'GET_SUBJECTS';
 const DELETE_SUBJECT = 'DELETE_SUBJECT';
 
@@ -26,7 +27,12 @@ export const getSubjects = (status) => {
 
 export const deleteSubject = (id) => {
   return async (dispatch) => {
-    const { data: subject } = await axios.delete(`/api/subjects/${id}`);
+    const token = localStorage.getItem(TOKEN);
+    const { data: subject } = await axios.delete(`/api/subjects/${id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     dispatch(_deleteSubject(subject));
   };
 };

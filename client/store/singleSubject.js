@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const TOKEN = 'token';
 const GET_SUBJECT = 'GET_SUBJECT';
 const CREATE_SUBJECT = 'CREATE_SUBJECT';
 const UPDATE_SUBJECT = 'UPDATE_SUBJECT';
@@ -41,9 +42,15 @@ export const createSubject = (story) => {
 
 export const updateSubject = (subject) => {
   return async (dispatch) => {
+    const token = localStorage.getItem(TOKEN);
     const { data: updated } = await axios.put(
       `/api/subjects/${subject.id}`,
-      subject
+      subject,
+      {
+        headers: {
+          authorization: token,
+        },
+      }
     );
     dispatch(_updateSubject(updated));
   };

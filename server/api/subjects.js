@@ -2,6 +2,8 @@ const router = require('express').Router();
 const {
   models: { Subject },
 } = require('../db');
+const { requireToken, isAdmin } = require('./middleware');
+
 module.exports = router;
 
 // GET /api/subjects/:status
@@ -38,8 +40,9 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+// ADMIN ONLY ROUTES
 // PUT /api/subjects/:subjectId
-router.put('/:subjectId', async (req, res, next) => {
+router.put('/:subjectId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const subject = await Subject.findByPk(req.params.subjectId);
     res.send(await subject.update(req.body));
@@ -49,7 +52,7 @@ router.put('/:subjectId', async (req, res, next) => {
 });
 
 // DELETE /api/subjects/:subjectId
-router.delete('/:subjectId', async (req, res, next) => {
+router.delete('/:subjectId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const subject = await Subject.findByPk(req.params.subjectId);
     await subject.destroy();
