@@ -22,22 +22,18 @@ const AuthForm = ({ name, displayName }) => {
         </h1>
 
         <form className="flex flex-col" onSubmit={handleSubmit} name={name}>
-          <div className="mb-3">
-            <input
-              className="w-full border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
-              name="username"
-              placeholder="Username"
-              type="text"
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              className="w-full border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
-              name="password"
-              placeholder="Password"
-              type="password"
-            />
-          </div>
+          <input
+            className="w-full mb-3 border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
+            name="username"
+            placeholder="Username"
+            type="text"
+          />
+          <input
+            className="w-full mb-3 border-2 border-gray p-3 rounded-md focus:outline-none focus:border-black"
+            name="password"
+            placeholder="Password"
+            type="password"
+          />
           <button
             className="bg-yellow rounded-lg block w-full p-3 font-medium"
             type="submit"
