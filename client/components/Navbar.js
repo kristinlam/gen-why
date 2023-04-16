@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link to="/submit">Suggest a Story</Link>
           </div>
           <div>
-            <Link onClick={handleClick} to="/">
+            <Link onClick={handleClick} to="/login">
               Log Out
             </Link>
           </div>
