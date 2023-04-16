@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 const SuggestForm = () => {
   const dispatch = useDispatch();
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const defaultValues = {
     name: '',
@@ -18,8 +20,16 @@ const SuggestForm = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(createSubject(formValues));
-    setFormValues(defaultValues);
+    dispatch(createSubject(formValues))
+      .then(() => {
+        setFormValues(defaultValues);
+        setError(null);
+        setSuccess(true);
+      })
+      .catch((err) => {
+        setSuccess(false);
+        setError(err.message);
+      });
   };
 
   return (
@@ -56,6 +66,13 @@ const SuggestForm = () => {
           >
             Submit
           </button>
+          {error && <div className="mt-4 text-center text-red">{error}</div>}
+          {success && (
+            <div className="mt-4 text-center text-green">
+              <p>Thank you for your submission!</p>
+              <p>We will review it as soon as we can.</p>
+            </div>
+          )}
         </form>
         <Link to="/" className="text-right">
           Go back
