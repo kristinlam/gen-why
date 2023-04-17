@@ -5,26 +5,11 @@ const {
   models: { User, Subject },
 } = require('../server/db');
 
-const subjectData = [
-  {
-    name: 'pants',
-    link: 'https://jezebel.com/pants-canceled-1828581801',
-    status: 'approved',
-  },
-  {
-    name: 'saying "Merry Christmas"',
-    link: 'https://www.npr.org/2018/12/21/678148112/millennials-strike-again-this-time-we-are-killing-cash-and-merry-christmas',
-    status: 'approved',
-  },
-];
+const subjectData = require('./data.js');
 
 async function seed() {
   await db.sync({ force: true });
   console.log('db synced!');
-
-  const users = await Promise.all([
-    User.create({ username: 'kristin', password: '123', admin: true }),
-  ]);
 
   const subjects = await Promise.all(
     subjectData.map((subject) => {
@@ -32,7 +17,6 @@ async function seed() {
     })
   );
 
-  console.log(`seeded ${users.length} users`);
   console.log(`seeded ${subjects.length} subjects`);
   console.log(`seeded successfully`);
 }
