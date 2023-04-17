@@ -18,11 +18,11 @@ const AllSubjects = () => {
 
   return (
     <div className="subject-list">
-      <ul>
+      <ul className="text-5xl md:text-6xl xl:text-7xl">
         {deepCopyOfSubjects.sort(sortAlphabetical).map((subject, index) => (
           <motion.li
             key={subject.id}
-            className={`text-7xl mb-6 ${cycleColors(index)}`}
+            className={`mb-4 md:mb-5 xl:mb-6 ${cycleColors(index)}`}
             initial={{ opacity: 0, translateY: 150 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}

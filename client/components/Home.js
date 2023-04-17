@@ -5,10 +5,9 @@ import AllSubjects from './AllSubjects';
 
 export const Home = () => {
   return (
-    <div className="p-10 ">
-      <AllSubjects />
+    <div className="p-10">
       <motion.div
-        className="fixed bottom-0 right-0 w-1/3 m-10 text-right"
+        className="mb-8 lg:fixed lg:bottom-0 lg:right-0 lg:w-1/3 lg:mb-10 lg:mr-10 lg:text-right"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -26,6 +25,8 @@ export const Home = () => {
           </Link>
         </p>
       </motion.div>
+
+      <AllSubjects />
     </div>
   );
 };
