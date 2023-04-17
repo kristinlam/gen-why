@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div>
       {isLoggedIn && (
-        <nav className="flex justify-between bg-green p-5 text-cream">
+        <nav className="flex justify-between bg-green p-5 text-white">
           <div>
             <Link className="mr-6" to="/">
               Home
