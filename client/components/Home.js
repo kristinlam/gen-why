@@ -12,7 +12,7 @@ export const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-3xl font-bold mb-2.5 text-red ">Gen Why</h1>
+        <h1 className="text-3xl font-bold mb-2.5 text-red">Gen Why</h1>
         <p>
           Millenials have gotten a lot of flak from the media for ruining
           everything from yogurt to democracy. After much backlash, these
