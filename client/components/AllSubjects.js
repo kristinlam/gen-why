@@ -29,7 +29,9 @@ const AllSubjects = () => {
           >
             <a
               href={subject.link}
-              className={`text-${cycleColors(index)}`}
+              className={`textShadow-${cycleColors(index)} text-${cycleColors(
+                index
+              )}`}
               target="_blank"
             >
               {subject.name}
