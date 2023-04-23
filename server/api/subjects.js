@@ -21,16 +21,6 @@ router.get('/:status', async (req, res, next) => {
   }
 });
 
-// GET /api/subjects/:subjectId
-router.get('/:subjectId', async (req, res, next) => {
-  try {
-    const subject = await Subject.findByPk(req.params.subjectId);
-    res.json(subject);
-  } catch (err) {
-    next(err);
-  }
-});
-
 router.post('/', async (req, res, next) => {
   try {
     const subject = await Subject.create(req.body);
