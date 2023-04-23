@@ -150,7 +150,7 @@
 }
 
 .textShadow-purple:hover {
-  --shadow-color: #e5c2d4;
+  --shadow-color: #e5c2d4; /* 80% lighter */
   --outline-color: #91426a; /* 20% darker */
   -webkit-text-stroke: 2px var(--outline-color);
 
@@ -187,7 +187,7 @@
 }
 
 .textShadow-red:hover {
-  --shadow-color: #f7d7d1; /* 80% */
+  --shadow-color: #f7d7d1; /* 80% lighter */
   --outline-color: #a4331b; /* 20% darker */
   -webkit-text-stroke: 2px var(--outline-color);
 
@@ -224,7 +224,7 @@
 }
 
 .textShadow-yellow:hover {
-  --shadow-color: #ffeeda; /* 80% */
+  --shadow-color: #ffeeda; /* 80% lighter */
   --outline-color: #ff8f03; /* 20% darker */
   -webkit-text-stroke: 2px var(--outline-color);
 
