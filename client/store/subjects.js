@@ -3,7 +3,6 @@ import axios from 'axios';
 const TOKEN = 'token';
 const GET_SUBJECTS = 'GET_SUBJECTS';
 const UPDATE_SUBJECT = 'UPDATE_SUBJECT';
-const UPDATE_PENDING_SUBJECTS = 'UPDATE_PENDING_SUBJECTS';
 const DELETE_SUBJECT = 'DELETE_SUBJECT';
 
 const _getSubjects = (subjects) => {
@@ -17,13 +16,6 @@ const _updateSubject = (subject) => {
   return {
     type: UPDATE_SUBJECT,
     subject,
-  };
-};
-
-const _updatePendingSubjects = (subjects) => {
-  return {
-    type: UPDATE_PENDING_SUBJECTS,
-    subjects,
   };
 };
 
@@ -85,8 +77,6 @@ export default function (state = [], action) {
       return state.map((subject) =>
         subject.id === action.subject.id ? action.subject : subject
       );
-    case UPDATE_PENDING_SUBJECTS:
-      return action.subjects;
     case DELETE_SUBJECT:
       return state.filter((subject) => subject.id !== action.subject.id);
     default:
