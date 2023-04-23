@@ -1,6 +1,6 @@
 # Gen-Why
 
-Gen Why is a fullstack web application that showcases articles on the many — often bizarre — things that millennials have alleged ruined, from the humorous to the bizarre. Visitors are welcome to explore the collection of curated articles or contribute their own suggestions.
+Gen Why is a fullstack web application that showcases articles on the many things that millennials have alleged ruined, from the humorous to the bizarre. Visitors are welcome to explore the collection of curated articles or contribute their own suggestions.
 
 # Features
 
