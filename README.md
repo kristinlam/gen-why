@@ -1,6 +1,6 @@
 # Gen-Why
 
-Gen Why is a fullstack web application that showcases articles on the many – often bizarre – things that millennials have alleged ruined, from the humorous to the bizarre. Visitors are welcome to explore the collection of curated articles or contribute their own suggestions.
+Gen Why is a fullstack web application that showcases articles on the many — often bizarre — things that millennials have alleged ruined, from the humorous to the bizarre. Visitors are welcome to explore the collection of curated articles or contribute their own suggestions.
 
 # Features
 
@@ -16,15 +16,17 @@ Visitors can submit suggestions through a form, which requires inputting only a 
 
 ![Suggestion Form](/public/readme/suggest.png)
 
-### Admin Dashboard
-
-Admins can login and approve or reject submissions through an easy-to-use dashboard. Approved suggestions will instantly appear on the website.
-
 ### User Authentication
 
 User account creation and login are supported, but currently disabled. Only admins have accounts, with access to Express routes that allow them to approve and reject submissions.
 
 ![Admin Login](/public/readme/login.png)
+
+### Admin Dashboard
+
+Admins can login and approve or reject submissions through an easy-to-use dashboard. Approved suggestions will instantly appear on the website.
+
+![Admin Dashboard](/public/readme/dashboard.png)
 
 # Tech Stack
 
