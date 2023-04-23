@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSubjects, deleteSubject } from '../store/subjects';
-import { updateSubject } from '../store/singleSubject';
+import {
+  getSubjects,
+  deleteSubject,
+  updatePendingSubjects,
+} from '../store/subjects';
 import Navbar from './Navbar';
 
 const AdminHome = () => {
@@ -14,8 +17,7 @@ const AdminHome = () => {
   }, []);
 
   const handleApprove = (subject) => {
-    dispatch(updateSubject({ ...subject, status: 'approved' }));
-    dispatch(getSubjects('pending'));
+    dispatch(updatePendingSubjects({ ...subject, status: 'approved' }));
   };
 
   const handleReject = (id) => {
