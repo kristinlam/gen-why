@@ -28,7 +28,7 @@ const AllSubjects = () => {
             key="loading"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ y: 150, opacity: 0 }}
+            exit={{ opacity: 0, translateY: 150 }}
           >
             Loading...
           </motion.p>
